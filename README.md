@@ -16,7 +16,7 @@ cd raw/code/
 
 Then the file **Watch_accelerometer.csv.sort** will be created in __raw/__
 
-### Example of generating instances with 1 second threshold
+### Example of generating instances with 1-second threshold
 
 ```bash
 cd data/code/
@@ -24,3 +24,4 @@ cd data/code/
 ```
 
 Then the file **data\_Watch\_1.json** will be created in __data/__
+The first arument could be *Watch* or *Phones*
