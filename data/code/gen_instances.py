@@ -77,12 +77,12 @@ if __name__ == '__main__':
                     itr_a += 1
                 # output
                 opt = {
-                        'bt': beg_time,
-                        'et': end_time,
-                        'gd': glst,
-                        'ad': alst,
-                        'u': u,
-                        'lbl': cnt.most_common(1)[0][0]
+                        'begin_time': beg_time,
+                        'end_time': end_time,
+                        'gdata': glst,
+                        'adata': alst,
+                        'user': u,
+                        'label': cnt.most_common(1)[0][0]
                       }
                 print(json.dumps(opt), file=fout)
                 # re-init
