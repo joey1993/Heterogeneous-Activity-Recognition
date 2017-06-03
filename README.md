@@ -55,8 +55,15 @@ The first arument could be *Watch* or *Phones*
     ...
   ]
 }
+
+### Example of generating features with data_Watch_1.json file
+
+```bash
+cd data/code/
+python ./gen_feature.py data_Watch_1
+
 ```
-Then the file **data\_Watch\_1\_feature.json** is located in __data/__features/__
+Then the file **data\_Watch\_1\_feature.json** is located in __data/features/__
 
 Note that some of the features are empty or contain NaN values. The order corresponds to the orignal data file. 
 ### Format of feature Files
