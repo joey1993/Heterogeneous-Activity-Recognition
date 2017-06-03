@@ -55,6 +55,7 @@ The first arument could be *Watch* or *Phones*
     ...
   ]
 }
+```
 
 ### Example of generating features with data_Watch_1.json file
 
