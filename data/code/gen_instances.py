@@ -31,8 +31,8 @@ if __name__ == '__main__':
     data_user_g = {}
     with open(PATH_A, 'r') as fin:
         for line in fin:
-            if len(data_user_a) > 1:
-                break
+            # if len(data_user_a) > 1:
+            #     break
             d = parse(line)
             u = d['user']
             if u not in data_user_a:
@@ -41,8 +41,8 @@ if __name__ == '__main__':
 
     with open(PATH_G, 'r') as fin:
         for line in fin:
-            if len(data_user_g) > 1:
-                break
+            # if len(data_user_g) > 1:
+            #     break
             d = parse(line)
             u = d['user']
             if u not in data_user_g:
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     ulist = sorted(list(users))
 
     print('Start partitioning data', file=sys.stderr)
-    with open('../data_%s_%d_small.json' % (dev, sec), 'w') as fout:
+    with open('../data_%s_%d.json' % (dev, sec), 'w') as fout:
         for u in ulist:
             print(u, file=sys.stderr)
             dg = data_user_g[u]
@@ -88,7 +88,7 @@ if __name__ == '__main__':
                         'user': u,
                         'label': cnt.most_common(1)[0][0]
                       }
-                json.dumps(opt, fout)
+                print(json.dumps(opt), file=fout)
                 # re-init
                 beg_time = INF
                 beg_time = da[itr_a]['time'] if itr_a < len(da) and (beg_time == INF or da[itr_a]['time'] < beg_time) else beg_time
