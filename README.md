@@ -77,3 +77,25 @@ Note that some of the features are empty or contain NaN values. The order corres
   "end_time": 27921678471000
 }
 ```
+
+### Example of genenrating a smaller dataset with only slots containing 200 points
+
+```bash
+cd data/code/
+python gen_instances_small.py data_Watch_1 200
+```
+
+Since time point distribution is diverse, we only keep slots with more than 200 points.
+200, the default number, can be changed according to demands.
+
+### Example of splitting dataset into Training and Testing parts
+
+```bash
+cd data/code/
+python gen_feature_train_test.py data_Watch_1_small 0.2
+python gen_feature_train_test.py ./feature/data_Watch_1_feature 0.2
+```
+Splitting ratio was set to be 0.2
+
+
+
