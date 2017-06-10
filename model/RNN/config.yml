@@ -1,0 +1,9 @@
+datasets:
+  default: HAR_small
+  HAR_small:
+    training_data_file:
+      path: "../../data/data_Watch_1_small_train.json"
+      info: "Data source for the training data"
+    testing_data_file:
+      path: "../../data/data_Watch_1_small_test.json"
+      info: "Data source for the testing data"
