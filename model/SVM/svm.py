@@ -30,11 +30,26 @@ def label_to_numerical(y_train_label,y_test_label):
 
 
 
-def svm(X_train,y_train,X_test):
+def svm_linear(X_train,y_train,X_test):
 	clf = SVC(kernel='linear')
 	clf.fit(X_train, y_train)
 	y_test_predict = clf.predict(X_test)
 	return y_test_predict 
+
+def svm_rbf(X_train,y_train,X_test):
+	clf = SVC(kernel='rbf')
+	clf.fit(X_train, y_train)
+	y_test_predict = clf.predict(X_test)
+	return y_test_predict 
+
+
+
+def svm_poly(X_train,y_train,X_test):
+	clf = SVC(kernel='poly',degree = 3)
+	clf.fit(X_train, y_train)
+	y_test_predict = clf.predict(X_test)
+	return y_test_predict 
+
 
 
 def calculatePerformance(y_test_true,y_test_predict):
@@ -54,7 +69,7 @@ def main():
 	X_train_watch,y_train_label_watch = load_file('../../data/feature/data_Watch_1_small_train_feature.json')
 	X_test_watch,y_test_label_watch = load_file('../../data/feature/data_Watch_1_small_test_feature.json')
 	y_train_watch,y_test_watch = label_to_numerical(y_train_label_watch,y_test_label_watch)
-	y_test_predict_watch = svm(X_train_watch,y_train_watch,X_test_watch)
+	y_test_predict_watch = svm_poly(X_train_watch,y_train_watch,X_test_watch)
 	precision_watch,recall_watch,f1_score_watch = calculatePerformance(y_test_watch,y_test_predict_watch)
 	print precision_watch,recall_watch,f1_score_watch
 	watch_size =  np.shape(y_test_watch)[0]
@@ -63,7 +78,7 @@ def main():
 	X_train_phones,y_train_label_phones = load_file('../../data/feature/data_Phones_1_small_train_feature.json')
 	X_test_phones,y_test_label_phones = load_file('../../data/feature/data_Phones_1_small_test_feature.json')
 	y_train_phones,y_test_phones = label_to_numerical(y_train_label_phones,y_test_label_phones)
-	y_test_predict_phones = svm(X_train_phones,y_train_phones,X_test_phones) 
+	y_test_predict_phones = svm_poly(X_train_phones,y_train_phones,X_test_phones) 
 	precision_phones,recall_phones,f1_score_phones = calculatePerformance(y_test_phones,y_test_predict_phones)
 	print precision_phones,recall_phones,f1_score_phones
 	phones_size = np.shape(y_test_phones)[0]
