@@ -1,4 +1,6 @@
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import MultinomialNB
 from sklearn import preprocessing
 from sklearn import metrics
 import numpy as np
@@ -29,11 +31,18 @@ def label_to_numerical(y_train_label,y_test_label):
 	return y_train,y_test
 
 
-def naiveBayes(X_train,y_train,X_test):
+def Gaussian_naiveBayes(X_train,y_train,X_test):
 	gnb = GaussianNB()
 	gnb.fit(X_train, y_train)
 	y_test_predict = gnb.predict(X_test)
 	return y_test_predict 
+
+def BernoulliNB_naiveBayes(X_train,y_train,X_test):
+	bnb = BernoulliNB()
+	bnb.fit(X_train, y_train)
+	y_test_predict = bnb.predict(X_test)
+	return y_test_predict 
+
 
 
 
@@ -53,7 +62,7 @@ def main():
 	X_train_watch,y_train_label_watch = load_file('../../data/feature/data_Watch_1_small_train_feature.json')
 	X_test_watch,y_test_label_watch = load_file('../../data/feature/data_Watch_1_small_test_feature.json')
 	y_train_watch,y_test_watch = label_to_numerical(y_train_label_watch,y_test_label_watch)
-	y_test_predict_watch = naiveBayes(X_train_watch,y_train_watch,X_test_watch)
+	y_test_predict_watch = BernoulliNB_naiveBayes(X_train_watch,y_train_watch,X_test_watch)
 	precision_watch,recall_watch,f1_score_watch = calculatePerformance(y_test_watch,y_test_predict_watch)
 	print precision_watch,recall_watch,f1_score_watch
 	watch_size =  np.shape(y_test_watch)[0]
@@ -62,7 +71,7 @@ def main():
 	X_train_phones,y_train_label_phones = load_file('../../data/feature/data_Phones_1_small_train_feature.json')
 	X_test_phones,y_test_label_phones = load_file('../../data/feature/data_Phones_1_small_test_feature.json')
 	y_train_phones,y_test_phones = label_to_numerical(y_train_label_phones,y_test_label_phones)
-	y_test_predict_phones = naiveBayes(X_train_phones,y_train_phones,X_test_phones) 
+	y_test_predict_phones = BernoulliNB_naiveBayes(X_train_phones,y_train_phones,X_test_phones) 
 	precision_phones,recall_phones,f1_score_phones = calculatePerformance(y_test_phones,y_test_predict_phones)
 	print precision_phones,recall_phones,f1_score_phones
 	phones_size = np.shape(y_test_phones)[0]
