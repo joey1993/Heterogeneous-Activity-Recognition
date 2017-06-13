@@ -1,5 +1,10 @@
 # Heterogeneous-Activity-Recognition
 UCLA CS 239 Class Proj
+
+## Presentation Slides
+
+The [slides](https://docs.google.com/a/g.ucla.edu/presentation/d/1HavhKL3Ix8TY1fMxwHfMI023mfTtTPyNsAoevFGJkO0/edit?usp=sharing) is located in Google Slides.
+
 ## Preprocessing
 
 ### Raw data placement

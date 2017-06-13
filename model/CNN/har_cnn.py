@@ -16,6 +16,8 @@ class HARCNN(object):
         self.dropout_keep_prob = tf.placeholder(tf.float32, name="dropout_keep_prob")
 
         self.reshape_x = tf.reshape(self.input_x, [-1, 6, sequence_length/6])
+        self.trans_x = tf.transpose(self.reshape_x, perm=[0, 2, 1])
+        print self.trans_x.get_shape()
         self.expand_x = tf.expand_dims(self.reshape_x, -1)
 	print "expand_x: ",self.expand_x.get_shape()
         # Keeping track of l2 regularization loss (optional)
