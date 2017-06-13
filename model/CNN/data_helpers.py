@@ -10,6 +10,7 @@ def batch_iter(data, batch_size, num_epochs, shuffle=True):
     """
     Generates a batch iterator for a dataset.
     """
+    #when splitting data into batches, we design 10 cross-validation, to have try different part of the data in different batches 
     data = np.array(data)
     data_size = len(data)
     num_batches_per_epoch = int((len(data)-1)/batch_size) + 1
